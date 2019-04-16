@@ -1,0 +1,16 @@
+.TH man 2 "18 April 2019" "0.32" "Simple Shell man page"
+.SH NAME
+.B Simple Shell \- a program that takes commands from the keyboard and gives them to the operating system to perform.
+.SH SYNOPSIS
+.B Simple Shell [options] [command_string | file]
+.SH COPYRIGHT
+Copyright © 2019 by Brendan Eliason & Cynthia Dominguez, All Rights Reserved
+.SH DESCRIPTION
+.B Simple Shell
+is an .b sh-compatible command language interpreter that executes commands read from standard input or from a file.
+.SH ARGUMENTS
+The first argument is assumed to be the name of a file containing shell commands. If bash is invoked in this fashion, $0 is set to the name of the file, and the positional parameters are set to the remaining arguments. Bash reads and executes commands from this file, then exits. Bash's exit status is the exit status of the last command executed in the script. If no commands are executed, the exit status is 0. The shell searches the directories in PATH for the script.
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Cynthia Dominguez & Brendan Elison
