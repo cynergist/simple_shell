@@ -12,17 +12,21 @@ int main(void)
 
 	while (file_stream != -1)
 	{
-		if (isatty(STDIN_FILENO))
+		if (isatty(STDIN_FILENO) == 1)
 		write(1, "$ ", 3);
 		file_stream = getline(&s, &buffer_size, stdin);
 /* running /bin/sh and ctrl+d should exit at 0 and is f_s is -1 it is EOF */
-		if (file_stream != -1)
 		{
+			if (file_stream == EOF)
+			{
+				write(1, "\n", 2);
+			}
+			break;
 /* takes the \n and replaces with '\0' then return the first token adds '\0' */
-		s[file_stream - 1]  = '\0';
-		if (*s == '\0')
+			s[file_stream - 1]  = '\0';
+			if (*s == '\0')
 			continue;
-		if (cmd_read(s, file_stream) == 2)
+			if (cmd_read(s, file_stream) == 2)
 			file_stream = -1;
 	}
 	free(s);
