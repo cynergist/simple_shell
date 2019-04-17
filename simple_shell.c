@@ -12,13 +12,13 @@ int main(void)
 
 	while (1)
 	{
-		if (isatty(STDIN_FILENO) == 1)
-			write(1, "$ ", 3);
+		if (isatty(STDIN_FILENO) == 1 && isatty(STDOUT_FILENO) == 1)
+			write(1, "$ ", 2);
 		file_stream = getline(&s, &buffer_size, stdin);
 		if (file_stream == -1)
 		{
-		if (isatty(STDIN_FILENO) == 1)
-			write(1, "\n", 2);
+		if (isatty(STDIN_FILENO) == 1 && isatty(STDOUT_FILENO) == 1)
+			write(1, "\n", 1);
 			break;
 		}
 		s[file_stream - 1]  = '\0';
