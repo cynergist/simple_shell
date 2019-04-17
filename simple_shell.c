@@ -10,32 +10,25 @@ int main(void)
 	size_t buffer_size = 0;
 	ssize_t file_stream = 0;
 
-	while (file_stream != -1)
+	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1)
-		write(1, "$ ", 3);
+			write(1, "$ ", 3);
 		file_stream = getline(&s, &buffer_size, stdin);
-/* running /bin/sh and ctrl+d should exit at 0 and is f_s is -1 it is EOF */
+		if (file_stream == -1)
 		{
-			if (file_stream == EOF)
-			{
-				write(1, "\n", 2);
-			}
+		if (isatty(STDIN_FILENO) == 1)
+			write(1, "\n", 2);
 			break;
-/* takes the \n and replaces with '\0' then return the first token adds '\0' */
-			s[file_stream - 1]  = '\0';
-			if (*s == '\0')
+		}
+		s[file_stream - 1]  = '\0';
+		if (*s == '\0')
 			continue;
-			if (cmd_read(s, file_stream) == 2)
-			file_stream = -1;
+		if (cmd_read(s, file_stream) == 2)
+			file_stream = EOF;
 	}
 	free(s);
 	s = NULL;
-	}
-	if (file_stream == -1)
-	{
-		exit(0);
-	}
 	return (0);
 }
 /**
