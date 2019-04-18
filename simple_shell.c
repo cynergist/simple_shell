@@ -21,7 +21,9 @@ int main(void)
 				write(1, "\n", 1);
 			break;
 		}
-		s[file_stream - 1]  = '\0';
+
+		if (s[file_stream - 1]  == '\n')
+			s[file_stream - 1]  = '\0';
 		if (*s == '\0')
 			continue;
 		if (cmd_read(s, file_stream) == 2)
