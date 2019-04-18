@@ -108,7 +108,7 @@ int call_command(char *cmd_arr[])
 	{
 		(execve(exe_path_str, cmd_arr, environ));
 		perror("Error:");
-		exit(-1);
+		exit(1);
 	}
 	free(exe_path_str);
 	return (0);
