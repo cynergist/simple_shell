@@ -1,6 +1,6 @@
 .TH man 2 "17 April 2019" "0.32" "Simple Shell man page"
 .SH NAME
-.B Simple Shell \- a program that takes commands from the keyboard and gives them to the operating system to perform.
+.B Simple Shell \- a program that takes commands from the keyboard and gives them to the operating system to execute.
 .SH SYNOPSIS
 .B Simple Shell [options] [command_string | file]
 .SH COPYRIGHT
