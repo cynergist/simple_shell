@@ -38,12 +38,11 @@ int _strncmp(char *s1, char *s2, int n)
 	}
 	return (*s1 != *s2);
 }
-/**                                                                                                
- * _getenv - prints environment like getenv                                                        
- *                                                                                                 
- * Return: 0                                                                                       
+/**
+ * _getenv - prints environment like getenv                            *
+ * Return: 0
  */
-char * _getenv(char * var)
+char *_getenv(char *var)
 {
  	int i = 0;
 
