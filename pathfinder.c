@@ -39,7 +39,7 @@ char *pathfinder(char *cmd)
 		}
 		else
 		{
-			memset(new_path, 0, 100);
+			new_path[0] = 0;
 		}
 	}
 	free(path);
