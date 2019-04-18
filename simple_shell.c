@@ -2,11 +2,12 @@
 char *name;
 /**
  * main - print prompt, handle EOF, read file_stream
- *
+ * @argc: arg count (not needed)
+ * @argv: argv for command
  * Return: Always 0.
  */
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 	char *s = NULL;
 	size_t buffer_size = 0;

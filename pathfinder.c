@@ -7,7 +7,7 @@
  */
 char *pathfinder(char *cmd)
 {
-	char *path = _strdup(getenv("PATH"));
+	char *path = _strdup(_getenv("PATH"));
 	int i = 0, j = 0;
 	char *path_tokens = strtok(path, ":");
 	char *path_array[100];
@@ -16,7 +16,7 @@ char *pathfinder(char *cmd)
 	struct stat buf;
 
 	new_path = malloc(sizeof(char) * 100);
-	if (getenv("PATH")[0] == ':')
+	if (_getenv("PATH")[0] == ':')
 		if (stat(cmd, &buf) == 0)
 			return (_strdup(cmd));
 	while (path_tokens != NULL)
@@ -38,12 +38,11 @@ char *pathfinder(char *cmd)
 			return (new_path);
 		}
 		else
-		{
 			new_path[0] = 0;
-		}
 	}
 	free(path);
 	free(new_path);
+/* This is for after PATH checked and cmd is there locally */
 	if (stat(cmd, &buf) == 0)
 		return (_strdup(cmd));
 	return (NULL);
