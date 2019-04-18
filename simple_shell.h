@@ -20,5 +20,6 @@ char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 void print_not_found(char *cmd);
 int call_command(char *cmd_arr[]);
+char *_getenv(char *var);
 
 #endif
