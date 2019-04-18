@@ -46,9 +46,9 @@ int cmd_read(char *s, size_t __attribute__((unused))file_stream)
 	pid_t is_child;
 	int status, i;
 
-	if (strcmp(s, "exit") == 0)
+	if (_strcmp(s, "exit") == 0)
 		return (2);
-	if (strcmp(s, "env") == 0)
+	if (_strcmp(s, "env") == 0)
 		return (_printenv());
 	token = strtok(s, " "), i = 0;
 	while (token)
