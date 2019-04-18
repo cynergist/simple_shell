@@ -12,12 +12,13 @@ int main(void)
 
 	while (1)
 	{
-		if (isatty(STDIN_FILENO) == 1 && isatty(STDOUT_FILENO) == 1)
+		if (isatty(STDIN_FILENO) == 1)
 			write(1, "$ ", 2);
 		file_stream = getline(&s, &buffer_size, stdin);
 		if (file_stream == -1)
 		{
-			write(1, "\n", 1);
+			if (isatty(STDIN_FILENO) == 1)
+				write(1, "\n", 1);
 			break;
 		}
 		s[file_stream - 1]  = '\0';
@@ -40,10 +41,7 @@ int cmd_read(char *s, size_t __attribute__((unused))file_stream)
 {
 	char *token = NULL;
 	char *cmd_arr[100];
-	char *cmd = NULL;
-	char *exe_path_str = NULL;
-	pid_t is_child;
-	int status, i;
+	int i;
 
 	if (_strcmp(s, "exit") == 0)
 		return (2);
@@ -56,8 +54,40 @@ int cmd_read(char *s, size_t __attribute__((unused))file_stream)
 		token = strtok(NULL, " ");
 	}
 	cmd_arr[i] = NULL;
+/* Return status code */
+	return (call_command(cmd_arr));
+}
+/**
+ * print_not_found - prints when cmd is not found in path
+ *
+ * @cmd: a string provided by the stdin
+ */
+void print_not_found(char *cmd)
+{
+	write(2, "1: ", 3);
+	write(2, cmd, _strlen(cmd));
+	write(2, ": not found\n", 12);
+}
+/**
+ * call_command - calls cmd, forks, execve
+ *
+ * @cmd_arr: a string provided by the stdin
+ * Return: 0
+ */
+int call_command(char *cmd_arr[])
+{
+	char *exe_path_str = NULL;
+	char *cmd = NULL;
+	pid_t is_child;
+	int status;
+
 	cmd = cmd_arr[0];
 	exe_path_str = pathfinder(cmd);
+	if (exe_path_str == NULL)
+	{
+		print_not_found(cmd);
+		return (3);
+	}
 	is_child = fork();
 	if (is_child < 0)
 	{
