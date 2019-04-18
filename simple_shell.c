@@ -1,14 +1,19 @@
 #include "simple_shell.h"
+char *name;
 /**
  * main - print prompt, handle EOF, read file_stream
  *
  * Return: Always 0.
  */
-int main(void)
+
+int main(int argc, char* argv[])
 {
 	char *s = NULL;
 	size_t buffer_size = 0;
 	ssize_t file_stream = 0;
+
+	(void) argc;
+	name = argv[0];
 
 	while (1)
 	{
@@ -66,7 +71,8 @@ int cmd_read(char *s, size_t __attribute__((unused))file_stream)
  */
 void print_not_found(char *cmd)
 {
-	write(2, "1: ", 3);
+	write(2, name, _strlen(name));
+	write(2, ": 1: ", 5);
 	write(2, cmd, _strlen(cmd));
 	write(2, ": not found\n", 12);
 }
