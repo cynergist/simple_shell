@@ -1,4 +1,4 @@
-.TH man 2 "18 April 2019" "0.32" "Simple Shell man page"
+.TH man 2 "17 April 2019" "0.32" "Simple Shell man page"
 .SH NAME
 .B Simple Shell \- a program that takes commands from the keyboard and gives them to the operating system to perform.
 .SH SYNOPSIS
@@ -19,7 +19,7 @@ This interactive shell reads commands from user input on a tty. Startup files ar
 .PP
 Simple Shell also has a non-interactive mode which allows BASH commands to be read and commands to be executed  from  file
 .SH ENVIRONMENT
-The environment is a list of name-value pairs that is passed to an executed program in the same way as a normal argument list; see exec(2) and environ(5). The shell interacts with the environment in several ways. On invocation, the shell scans the environment and creates a parameter for each name found, giving it the corresponding value. Executed commands inherit the same environment. If the user modifies the values of these parameters or creates new ones, none of these affects the environment unless the export command is used to bind the shell's parameter to the environment. The environment seen by any executed command is thus composed of any unmodified name-value pairs originally inherited by the shell, plus any modifications or additions, all of which must be noted in export commands.
+The environment is a list of name-value pairs that is passed to an executed program in the same way as a normal argument list. The shell interacts with the environment in several ways. On invocation, the shell scans the environment and creates a parameter for each name found, giving it the corresponding value. Executed commands inherit the same environment. If the user modifies the values of these parameters or creates new ones, none of these affects the environment unless the export command is used to bind the shell's parameter to the environment. The environment seen by any executed command is thus composed of any unmodified name-value pairs originally inherited by the shell, plus any modifications or additions, all of which must be noted in export commands.
 .SH PARAMETERS
 .B Parameters
 are shell variables; they can be assigned values and their values can be accessed using a parameter substitution.  The Shell implicitly sets some parameters like 
