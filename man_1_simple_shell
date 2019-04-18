@@ -58,7 +58,61 @@ Each arg is printed to standard output; afterwards, a newline is printed. The fo
 -0nnn Prints the character (byte) with octal value nnn.
 .br
 .TP
-pwd	   Prints the name of the current directory.
+ls [\fB\fR \fIOPTON...\fR]... [\fB\fR \fIFILE...\fR] ...
+.br
+List information about the FILEs (the current directory by default). Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
+.br
+Mandatory arguments to long options are mandatory for short options too.
+.br
+-a, --all  do not ignore entries starting with .
+.br
+-A, --almost-all  do not list implied . and ..
+.br
+--author   With -l, print the author of each file
+.br
+-C     List entries by columns
+.br
+-d, --directory   List directories themselves, not their contents
+.br
+-g     Like -l, but do not list owner
+.br
+--group-directories-first    Group directories before files; can be augmented with a --sort option, but any use of --sort=none (-U) disables grouping
+.br
+-G, --no-group    In a long listing, don't print group names
+.br
+-i, --inode    Print the index number of each file
+.br
+-l     Use a long listing format
+.br
+-L, --dereference     When showing file information for a symbolic link, show information for the file the link references rather than for the link itself
+.br
+-m     Fill width with a comma separated list of entries
+.br
+-n, --numeric-uid-gid    Like -l, but list numeric user and group IDs
+.br
+-N, --literal    Print entry names without quoting
+.br
+-r, --reverse   Reverse order while sorting
+.br
+-R, --recursive   List subdirectories recursively
+.br
+-s, --size   Print the allocated size of each file, in blocks
+.br
+-S     Sort by file size, largest first
+.br
+--sort=WORD   Sort by WORD instead of name: none (-U), size (-S), time (-t), version (-v), extension (-X)
+.br
+-t     Sort by modification time, newest first
+.br
+-u     With -lt: sort by, and show, access time; with -l: show access time and sort by name; otherwise: sort by access time, newest first
+.br
+-U     Do not sort; list entries in directory order
+.br
+-x     List entries by lines instead of by columns
+.br
+-X     Sort alphabetically by entry extension
+.br
+-1     List one file per line.  Avoid '\n' with -q or -b
 .SH BUGS
 No known bugs.
 .SH AUTHORS
