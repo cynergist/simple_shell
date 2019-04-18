@@ -7,10 +7,28 @@
 Copyright © 2019 by Brendan Eliason & Cynthia Dominguez, All Rights Reserved
 .SH DESCRIPTION
 .B Simple Shell
-is an .b sh-compatible command language interpreter that executes commands read from standard input or from a file.
+is an .Bsh-compatible command language interpreter that executes commands read from standard input or from a file.
 .SH ARGUMENTS
 The first argument is assumed to be the name of a file containing shell commands. If bash is invoked in this fashion, $0 is set to the name of the file, and the positional parameters are set to the remaining arguments. Bash reads and executes commands from this file, then exits. Bash's exit status is the exit status of the last command executed in the script. If no commands are executed, the exit status is 0. The shell searches the directories in PATH for the script.
+.SH EXECUTION
+The shell parameter $PATH defines the search path for the directory containing the command. Each alternative directory name is separated by a colon (:). The default path is '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'. Each directory in the path is searched for an executable file. If the file has execute permission but is not an a.out file, it is assumed to be a file containing shell commands. A subshell (i.e., a separate process) is spawned to read it. Each time a command is entered it is concatenated with a path string. These new strings are checked for executability and, if an executable string is found, it is chosen for execution.
+.SH ENVIRONMENT
+The environment is a list of name-value pairs that is passed to an executed program in the same way as a normal argument list; see exec(2) and environ(5). The shell interacts with the environment in several ways. On invocation, the shell scans the environment and creates a parameter for each name found, giving it the corresponding value. Executed commands inherit the same environment. If the user modifies the values of these parameters or creates new ones, none of these affects the environment unless the export command is used to bind the shell's parameter to the environment. The environment seen by any executed command is thus composed of any unmodified name-value pairs originally inherited by the shell, plus any modifications or additions, all of which must be noted in export commands.
+.SH SPECIAL COMMANDS
+echo [arg ...]
+     Each arg is printed to standard output; afterwards, a newline is printed. The following escapes sequences are recognized in arg:
+-b   Prints a backspace character.
+-c   Causes the command to return immediately. Any following characters are ignored, and the terminating newline is not printed.
+-f   Prints a formfeed character.
+-n   Prints a newline character.
+-r   Prints a carriage-return character.
+-t   Prints a tabulator character.
+-v   Prints a vertical tabulator character.
+-\   Prints a backslash character.
+-0nnn	    Prints the character (byte) with octal value nnn.
+
+pwd	    Prints the name of the current directory.
 .SH BUGS
 No known bugs.
 .SH AUTHOR
-Cynthia Dominguez & Brendan Elison
+Cynthia Dominguez & Brendan Eliason
