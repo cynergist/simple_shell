@@ -11,11 +11,11 @@ is an
 .B sh
 -compatible command language interpreter that executes commands read from standard input or from a file.
 .SH ARGUMENTS
-The first argument is assumed to be the name of a file containing shell commands. If bash is invoked in this fashion, arg[0] is set to the name of the file, and the positional parameters are set to the remaining arguments. Bash reads and executes commands from this file, then exits. Bash's exit status is the exit status of the last command executed in the script. If no commands are executed, the exit status is 0. The shell searches the directories in PATH for the script.
+The first argument is assumed to be the name of a file containing shell commands. If Simple Shell is invoked in this fashion, arg[0] is set to the name of the file, and the following parameters are set to the remaining arguments. Simple Shell reads and executes commands from this file, then exits. Simple Shell's exit status is the exit status of the last command executed in the script. If no commands are executed, the exit status is 0. The shell searches the directories in PATH for the script.
 .SH EXECUTION
 The shell parameter $PATH defines the search path for the directory containing the command. Each alternative directory name is separated by a colon (:). The default path is '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'. Each directory in the path is searched for an executable file. If the file has execute permission but is not an a.out file, it is assumed to be a file containing shell commands. A subshell (i.e., a separate process) is spawned to read it. Each time a command is entered it is concatenated with a path string. These new strings are checked for executability and, if an executable string is found, it is chosen for execution.
 .PP
-This interactive shell reads commands from user input on a tty. Startup files are read by Simple Shell on activation, a prompt is displayed, and job control is enabled by default. This interactive mode has both standard input and standard error are attached to a tty and prints prompts before reading input (see PS1 and PS2 parameters).
+This interactive shell reads commands from user input on a tty. Startup files are read by Simple Shell on activation, a prompt is displayed, and job control is enabled by default. This interactive mode has both standard input and standard error that are attached to a tty and prints prompts before reading input (see PS1 and PS2 parameters).
 .PP
 Simple Shell also has a non-interactive mode which allows BASH commands to be read and commands to be executed  from  file
 .SH ENVIRONMENT
@@ -58,7 +58,61 @@ Each arg is printed to standard output; afterwards, a newline is printed. The fo
 -0nnn Prints the character (byte) with octal value nnn.
 .br
 .TP
-pwd	   Prints the name of the current directory.
+ls [\fB\fR \fIOPTON...\fR]... [\fB\fR \fIFILE...\fR] ...
+.br
+List information about the FILEs (the current directory by default). Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
+.br
+Mandatory arguments to long options are mandatory for short options too.
+.br
+-a, --all  do not ignore entries starting with .
+.br
+-A, --almost-all  do not list implied . and ..
+.br
+--author   With -l, print the author of each file
+.br
+-C     List entries by columns
+.br
+-d, --directory   List directories themselves, not their contents
+.br
+-g     Like -l, but do not list owner
+.br
+--group-directories-first    Group directories before files; can be augmented with a --sort option, but any use of --sort=none (-U) disables grouping
+.br
+-G, --no-group    In a long listing, don't print group names
+.br
+-i, --inode    Print the index number of each file
+.br
+-l     Use a long listing format
+.br
+-L, --dereference     When showing file information for a symbolic link, show information for the file the link references rather than for the link itself
+.br
+-m     Fill width with a comma separated list of entries
+.br
+-n, --numeric-uid-gid    Like -l, but list numeric user and group IDs
+.br
+-N, --literal    Print entry names without quoting
+.br
+-r, --reverse   Reverse order while sorting
+.br
+-R, --recursive   List subdirectories recursively
+.br
+-s, --size   Print the allocated size of each file, in blocks
+.br
+-S     Sort by file size, largest first
+.br
+--sort=WORD   Sort by WORD instead of name: none (-U), size (-S), time (-t), version (-v), extension (-X)
+.br
+-t     Sort by modification time, newest first
+.br
+-u     With -lt: sort by, and show, access time; with -l: show access time and sort by name; otherwise: sort by access time, newest first
+.br
+-U     Do not sort; list entries in directory order
+.br
+-x     List entries by lines instead of by columns
+.br
+-X     Sort alphabetically by entry extension
+.br
+-1     List one file per line.  Avoid '\n' with -q or -b
 .SH BUGS
 No known bugs.
 .SH AUTHORS
