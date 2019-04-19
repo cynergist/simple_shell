@@ -99,10 +99,18 @@ List of allowed functions and system calls
 
 ## Compilation <br />
 Our shell is compiled this way: <br />
-
+`gcc -Wall -Werror -Wextra -pedantic simple_shell.c simple_helpers.c pathfinder.c built_ins.c -o hsh`
+<br />
 ## Testing <br />
 Our shell works like this in interactive mode: <br />
-
+`$./hsh
+$ /bin/ls
+hsh simple_shell.c simple_helpers.c pathfinder.c built_ins.c
+$
+$ exit
+vagrant:
+`
+<br />
 But also in non-interactive mode: <br />
 
 ## Tasks <br />
