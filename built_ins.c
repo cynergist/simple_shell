@@ -48,7 +48,7 @@ char *_getenv(char *var)
 
 	for (i = 0; environ[i]; i++)
 	{
-		if (_strncmp(environ[i], var, _strlen(var)) == 0)
+		if (strncmp(environ[i], var, _strlen(var)) == 0)
 			return (&environ[i][_strlen(var)]);
 	}
 	return (NULL);
