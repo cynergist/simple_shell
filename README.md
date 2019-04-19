@@ -105,10 +105,10 @@ Our shell is compiled this way: <br />
 Our shell works like this in interactive mode: <br />
 `$./hsh
 $ /bin/ls
-hsh simple_shell.c simple_helpers.c pathfinder.c built_ins.c
-$
-$ exit
-vagrant:
+hsh simple_shell.c simple_helpers.c pathfinder.c built_ins.c <br />
+$ <br />
+$ exit <br />
+vagrant: <br />
 `
 <br />
 But also in non-interactive mode: <br />
