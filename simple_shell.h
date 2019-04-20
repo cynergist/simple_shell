@@ -21,5 +21,5 @@ int _strlen(char *s);
 void print_not_found(char *cmd);
 int call_command(char *cmd_arr[]);
 char *_getenv(char *var);
-int _strncmp(char *s1, char *s2, int n);
+int _str_n_cmp(char *s1, char *s2, int n);
 #endif

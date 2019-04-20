@@ -19,7 +19,7 @@ int _printenv(void)
 }
 
 /**
- * _strncmp - lexicographically compares not more than count chars
+ * _str_n_cmp - lexicographically compares not more than count chars
  * from two strings and returns an integer based on the result.
  * @s1: first string
  * @s2: second string to compare to first string
@@ -27,7 +27,7 @@ int _printenv(void)
  * Return: <0 if s1 is less than s2, 0 for equal, >0 if s1 is greater than s2
  * Description: Src code file like GNU C library
  */
-int _strncmp(char *s1, char *s2, size_t n)
+int _str_n_cmp(char *s1, char *s2, int n)
 {
 	char c1, c2;
 
@@ -53,7 +53,7 @@ char *_getenv(char *var)
 
 	for (i = 0; environ[i]; i++)
 	{
-		if (_strncmp(environ[i], var, _strlen(var)) == 0)
+		if (_str_n_cmp(environ[i], var, _strlen(var)) == 0)
 			return (&environ[i][_strlen(var)]);
 	}
 	return (NULL);
