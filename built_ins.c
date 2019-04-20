@@ -19,23 +19,25 @@ int _printenv(void)
 }
 
 /**
- * _strncmp - compares two strings
+ * _strncmp - lexicographically compares not more than count chars
+ * from two strings and returns an integer based on the result.
  * @s1: first string
  * @s2: second string to compare to first string
  * @n: count of the comparison between s1 and s2
  * Return: <0 if s1 is less than s2, 0 for equal, >0 if s1 is greater than s2
- * Description: Credit code.woboq.org/userspace/glibc/string/test-strncmp
+ * Description: Src code file like GNU C library
  */
 int _strncmp(char *s1, char *s2, size_t n)
 {
-	char charstr1, charstr2;
+	char c1, c2;
 
 	while (n--)
 	{
-		charstr1 = *s1++;
-		charstr2 = *s2++;
-		if (charstr1 == '\0' || charstr1 != charstr2)
-			return (charstr1 > charstr2 ? 1 : (charstr1 < charstr2 ? -1 : 0));
+		c1 = *s1++;
+		c2 = *s2++;
+		if (c1 == '\0' || c1 != c2)
+/* compare at most, first n bytes of both strings */
+			return (c1 > c2 ? 1 : (c1 < c2 ? -1 : 0));
 	}
 				return (0);
 }
