@@ -24,17 +24,20 @@ int _printenv(void)
  * @s2: second string to compare to first string
  * @n: count of the comparison between s1 and s2
  * Return: <0 if s1 is less than s2, 0 for equal, >0 if s1 is greater than s2
+ * Description: Credit code.woboq.org/userspace/glibc/string/test-strncmp
  */
-int _strncmp(char *s1, char *s2, int n)
+int _strncmp(char *s1, char *s2, size_t n)
 {
-	while ((*s1 == *s2) && (n--))
+	char charstr1, charstr2;
+
+	while (n--)
 	{
-		if (*s1 == '\0')
-		return (0);
+		charstr1 = *s1++;
+		charstr2 = *s2++;
+		if (charstr1 == '\0' || charstr1 != charstr2)
+			return (charstr1 > charstr2 ? 1 : (charstr1 < charstr2 ? -1 : 0));
 	}
-	s1++;
-	s2++;
-	return (*s1 != *s2);
+				return (0);
 }
 /**
  * _getenv - prints environment like getenv
@@ -48,7 +51,7 @@ char *_getenv(char *var)
 
 	for (i = 0; environ[i]; i++)
 	{
-		if (strncmp(environ[i], var, _strlen(var)) == 0)
+		if (_strncmp(environ[i], var, _strlen(var)) == 0)
 			return (&environ[i][_strlen(var)]);
 	}
 	return (NULL);
