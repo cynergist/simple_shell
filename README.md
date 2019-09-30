@@ -113,8 +113,6 @@ vagrant: <br />
 <br />
 But also in non-interactive mode: <br />
 
-*Makefile coming soon*
-y
 ## Tasks <br />
 0. README, man, AUTHORS mandatory. // A README and man page is written for our shell. AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository.
 - Repo: GitHub repository: simple_shell
