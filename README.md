@@ -4,6 +4,36 @@ Year 1 - Low-level programming & Algorithm ― Linux and Unix system programming
 
 Team:  [Cynthia Dominguez](https://github.com/cynergist), [Brendan Eliason](https://github.com/zinczar)
 
+## Compilation <br />
+Our shell is compiled this way: <br />
+`gcc -Wall -Werror -Wextra -pedantic simple_shell.c simple_helpers.c pathfinder.c built_ins.c -o sh` <br />
+`./sh` <br />
+<br />
+
+## Makefile <br />
+You can also run the Makefile: <br />
+`make` <br />
+`./simple_shell` <br />
+<br />
+
+## Commands <br />
+At minimum, this shell handles the following commands to display file contents on the command line: <br />
+`cat`: Concatenates the file and gives output on standard output. <br />
+`less`: View files instead of opening the file. Allows backward and forward movement. <br />
+`more`: Page through text one screenful at a time. <br />
+<br />
+This shell handles the following file and directory manipulation commands: <br />
+`mkdir`: Creates a directory and accepts directory name as next parameter. <br />
+`rm` and `rm -r`: Used to delete files and directories. <br />
+`touch`: Creates a file or updates a file. <br />
+<br />
+And the following basic command line navigation commands: <br />
+`ls`: Displays list of all files and folders in the current directory. <br />
+`cd`: Changes the directory. <br />
+`du`: Shows disk usage. <br />
+`pwd`: Shows the present working directory. <br />
+`man` + `cmd`: Shows the manual entry for any given command. <br />
+`exit`: Quits the simple_shell program. <br />
 # Resources <br />
 
 [Unix shell wiki](https://en.wikipedia.org/wiki/Unix_shell) <br />
@@ -97,23 +127,7 @@ List of allowed functions and system calls
 - wait4 (man 2 wait4)
 - write (man 2 write)
 
-## Compilation <br />
-Our shell is compiled this way: <br />
-`gcc -Wall -Werror -Wextra -pedantic simple_shell.c simple_helpers.c pathfinder.c built_ins.c -o hsh`
-<br />
-## Testing <br />
-Our shell works like this in interactive mode: <br />
-`$./hsh
-$ /bin/ls
-hsh simple_shell.c simple_helpers.c pathfinder.c built_ins.c <br />
-$ <br />
-$ exit <br />
-vagrant: <br />
-`
-<br />
-But also in non-interactive mode: <br />
-
-## Tasks <br />
+## Task Instructions <br />
 0. README, man, AUTHORS mandatory. // A README and man page is written for our shell. AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository.
 - Repo: GitHub repository: simple_shell
 - File: README.md, man_1_simple_shell, AUTHORS
